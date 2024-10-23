@@ -15,4 +15,17 @@ function Logo() {
   )
 }
 
+export function LogoMobile() {
+  return (
+    <a href="/" className="flex items-center gap-2">
+        {/* logolar için */}
+        {/* logolar için renkler ayarlanması*/}
+        <p className="bg-gradient-to-r from-blue-600 to-green-400 bg-clip-text text-3xl
+        font-bold leading-tight tracking-tighter text-transparent">
+            FinancialFreedom
+        </p>
+    </a>
+  )
+}
+
 export default Logo
