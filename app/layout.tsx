@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import './globals.css';
 import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 import { RootProvider } from "react-day-picker";
+import RootProviders from "@/components/providers/RootProviders";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,14 +27,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <html lang="en" className="dark" style={{colorScheme: "dark"}}>  {/*normali "en" idi */}
         <body>      
           <header>
-            <SignedOut>
+            {/*normal local host 404 hatası verirken sign in page çalışıyor (rootproviders buraya eklendiğinde)*/}
+             {/* <SignedOut>
               <SignInButton />
-            </SignedOut>
-            <SignedIn>
+            </SignedOut> */}
+            {/* <SignedIn>
               <UserButton />
-            </SignedIn>
+            </SignedIn> */}
           </header>
-          <main><RootProvider>{children}</RootProvider></main>         {/* BURDA KALDIK VİDEO 12:29 */}
+          <main><RootProviders>{children}</RootProviders></main>  {/*ROOT PROVİDERS EKLENDİĞİNDE HATA VERİYOR children çıkartıldı*/}
         </body>
       </html>
     </ClerkProvider>
