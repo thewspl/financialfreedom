@@ -90,6 +90,7 @@ function DesktopNavbar() {
     );
 }
 
+
 function NavbarItem ({link, label, clickCallback}: {link:string; label:string; clickCallback? : () => void;}){
     const pathname = usePathname ();
     const isActive = pathname === link;
