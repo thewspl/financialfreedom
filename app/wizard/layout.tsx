@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
-function layout() {
+function layout({children}: {children: ReactNode}) {
   return (
-    <div>
-      
+    <div className='relative flex h-screen w-full flex-col items-center justify-center'>
+      {children}
     </div>
   )
 }
 
-//video 39:11
+
 
 export default layout
