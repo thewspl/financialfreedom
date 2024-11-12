@@ -23,21 +23,21 @@ async function page() {
             </span>
         </h1>
         <h2 className="mt-4 text-center text-base text-muted-foreground">
-            Let &apos;s get started by setting up your currency
+            Para biriminizi ayarlayarak başlayalım
         </h2>
 
         <h3 className="mt-2 text-center text-sm text-muted-foreground">
-            You can change this setting at anytime
+            Bu ayarı istediğiniz zaman değiştirebilirsiniz
         </h3>
         </div>
         <Separator />
         <Card className='w-full'>
             <CardHeader>
                 <CardTitle>
-                    Currency
+                    Para Birimi
                 </CardTitle>
                 <CardDescription>
-                    Set your default currency for transactions
+                    İşlemler için para biriminizi ayarlayınız
                 </CardDescription>
             </CardHeader>
             <CardContent>
@@ -47,7 +47,7 @@ async function page() {
         <Separator />
         <Button className='w-full' asChild>
             <Link href={"/"}>
-            I&apos;m done! Take me to the dashboard
+            Hazırım! Beni ana sayfaya götür
             </Link>
         </Button>
         <div className="mt-8"></div>
