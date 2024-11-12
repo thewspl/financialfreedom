@@ -4,6 +4,7 @@ import './globals.css';
 import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 import { RootProvider } from "react-day-picker";
 import RootProviders from "@/components/providers/RootProviders";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -35,28 +36,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <UserButton />
             </SignedIn> */}
           </header>
-          <main><RootProviders>{children}</RootProviders></main>  {/*ROOT PROVİDERS EKLENDİĞİNDE HATA VERİYOR children çıkartıldı*/}
+          <main>
+            <Toaster richColors position="bottom-right"/>
+            <RootProviders>{children}</RootProviders>
+          </main>  {/*ROOT PROVİDERS EKLENDİĞİNDE HATA VERİYOR children çıkartıldı*/}
         </body>
       </html>
     </ClerkProvider>
   )
 }
-
-/*export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <ClerkProvider>
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
-    </ClerkProvider>
-  );
-}
-*/
