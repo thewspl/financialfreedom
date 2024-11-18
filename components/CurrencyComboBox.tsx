@@ -52,7 +52,7 @@ export function CurrencyComboBox() {
   const mutation = useMutation({
     mutationFn: UpdateUserCurrency,
     onSuccess: (data: UserSettings) => {
-      toast.success(`Para birimi başarıyla güncellendi!`, {
+      toast.success(`Para biriminiz başarıyla güncellendi!`, {
         id: "update-currency",
       })
 
@@ -61,7 +61,7 @@ export function CurrencyComboBox() {
       )
     },
     onError: (e) => {
-      toast.error("Bir şeyler ters gitti", {
+      toast.error("Bir şeyler ters gitti.", {
         id: "update-currency",
       })
     }
@@ -69,11 +69,11 @@ export function CurrencyComboBox() {
 
   const selectOption = React.useCallback((currency:Currency | null) => {
     if(!currency){
-      toast.error("Lütfen para birimi seçiniz")
+      toast.error("Lütfen para biriminizi seçiniz.")
       return;
     }
 
-    toast.loading("Para birimi güncelleniyor...", {
+    toast.loading("Para biriminiz güncelleniyor...", {
       id: "update-currency",
     })
 
@@ -88,7 +88,7 @@ export function CurrencyComboBox() {
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <Button variant="outline" className="w-full justify-start" disabled={mutation.isPending}>
-            {selectedOption ? <>{selectedOption.label}</> : <>Para biriminizi ayarlayın</>}
+            {selectedOption ? <>{selectedOption.label}</> : <>Para biriminizi ayarlayın.</>}
           </Button>
         </PopoverTrigger>
         <PopoverContent className="w-[200px] p-0" align="start">
@@ -104,7 +104,7 @@ export function CurrencyComboBox() {
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
         <Button variant="outline" className="w-full justify-start" disabled={mutation.isPending}>
-          {selectedOption ? <>{selectedOption.label}</> : <>Para biriminizi ayarlayın</>}
+          {selectedOption ? <>{selectedOption.label}</> : <>Para biriminizi ayarlayın.</>}
         </Button>
       </DrawerTrigger>
       <DrawerContent>
@@ -128,7 +128,7 @@ function OptionList({
     <Command>
       <CommandInput placeholder="Para birimi ara..." />
       <CommandList>
-        <CommandEmpty>No results found.</CommandEmpty>
+        <CommandEmpty>Para birimi bulunamadı!</CommandEmpty>
         <CommandGroup>
           {Currencies.map((currency: Currency) => (
             <CommandItem
