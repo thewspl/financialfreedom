@@ -4,6 +4,7 @@ import { currentUser } from '@clerk/nextjs/server'
 import { redirect } from 'next/navigation'
 import React, { use } from 'react'
 import CreateTransactionDialog from './_components/CreateTransactionDialog'
+import Overview from './_components/Overview'
 
 async function page() {
 
@@ -37,7 +38,7 @@ async function page() {
                 variant={"outline"}
                 className='border-emerald-500 bg-emerald-950 text-white 
                 hover:bg-emerald-700 hover:text-white'>
-                Gelir
+                Yeni Gelir 🤑
               </Button>
               }
               type="gelir"
@@ -49,7 +50,7 @@ async function page() {
                   variant={"outline"}
                   className='border-rose-500 bg-rose-950 text-white 
               hover:bg-rose-700 hover:text-white'>
-                  Gider
+                  Yeni Gider 🙁
                 </Button>
               }
               type="gider"
@@ -58,6 +59,7 @@ async function page() {
           </div>
         </div>
       </div>
+      <Overview userSettings={userSettings} />
     </div>
   )
 }
