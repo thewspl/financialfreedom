@@ -11,24 +11,24 @@ import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 import { Menu, User } from 'lucide-react';
 
 function Navbar() {
-  return (
-    <>
-      <DesktopNavbar/>
-      <MobileNavbar />
-    </>
-  );
+    return (
+        <>
+            <DesktopNavbar />
+            <MobileNavbar />
+        </>
+    );
 }
 
 const items = [
-    {label: "Ana Sayfa", link: "/"},
-    {label: "İşlemler", link: "/islemler"},
-    {label: "Hesap Yönetimi", link: "/hesap"},
+    { label: "Ana Sayfa", link: "/" },
+    { label: "İşlemler", link: "/islemler" },
+    { label: "Hesap Yönetimi", link: "/hesap" },
 ];
 
-function MobileNavbar(){
+function MobileNavbar() {
     const [isOpen, setIsOpen] = useState(false);
 
-    return(
+    return (
         <div className="block border-separate bg-background md:hidden">
             <nav className="container flex items-center justify-betweeb px-8">
                 <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -38,15 +38,15 @@ function MobileNavbar(){
                         </Button>
                     </SheetTrigger>
                     <SheetContent className='w-[400px] sm:w-[540px]'
-                    side ="left">
+                        side="left">
                         <Logo />
                         <div className="flex flex-col gap-1 pt-4 ">
-                            {items.map(item => 
-                            <NavbarItem
-                                key={item.label}
-                                link={item.link}
-                                label={item.label}
-                                clickCallback={()=> setIsOpen((prev) => !prev)}
+                            {items.map(item =>
+                                <NavbarItem
+                                    key={item.label}
+                                    link={item.link}
+                                    label={item.label}
+                                    clickCallback={() => setIsOpen((prev) => !prev)}
 
                                 />
                             )}
@@ -58,7 +58,7 @@ function MobileNavbar(){
                 </div>
                 <div className="flex items-center gap-2">
                     <ThemeSwitcherBtn />
-                    <UserButton afterSignOutUrl='/sign-in'/>
+                    <UserButton afterSignOutUrl='/sign-in' />
                 </div>
             </nav>
         </div>
@@ -72,11 +72,11 @@ function DesktopNavbar() {
                 <div className="flex h-[80px] min-h-[60px] items-center gap-x-4">
                     <Logo />
                     <div className="flex h-full gap-x-8">  {/* Flexbox ve yatay aralık ayarı flex-h-full*/}
-                        {items.map(item =>  (
+                        {items.map(item => (
                             <NavbarItem
-                            key={item.label}
-                            link={item.link}
-                            label={item.label}
+                                key={item.label}
+                                link={item.link}
+                                label={item.label}
                             />
                         ))}
                     </div>
@@ -91,20 +91,20 @@ function DesktopNavbar() {
 }
 
 
-function NavbarItem ({link, label, clickCallback}: {link:string; label:string; clickCallback? : () => void;}){
-    const pathname = usePathname ();
+function NavbarItem({ link, label, clickCallback }: { link: string; label: string; clickCallback?: () => void; }) {
+    const pathname = usePathname();
     const isActive = pathname === link;
 
-    return(
+    return (
         <div className="relative flex items-center">
             <Link href={link} className={cn(buttonVariants
-            ({variant:"ghost"}),  //şeklini değiştirme
-            "w-full justify-start text-lg text-muted-foreground hover:text-foreground",
-            isActive && "text-foreground"
+                ({ variant: "ghost" }),  //şeklini değiştirme
+                "w-full justify-start text-lg text-muted-foreground hover:text-foreground",
+                isActive && "text-foreground"
             )}
-            onClick={() => {
-                if (clickCallback) clickCallback();
-            }}
+                onClick={() => {
+                    if (clickCallback) clickCallback();
+                }}
             >
                 {label}
             </Link>
