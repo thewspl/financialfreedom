@@ -46,7 +46,7 @@ const emptyData: any[] = []
 type TransactionHistoryRow = getTransactionsHistoryResponseType[0];
 const columns: ColumnDef<TransactionHistoryRow>[] = [
     {
-        accessorKey: "category",
+        accessorKey: "category", //kategori
         header: ({ column }) => (
             <DataTableColumnHeader column={column} title='Kategori' />
         ),
@@ -63,7 +63,7 @@ const columns: ColumnDef<TransactionHistoryRow>[] = [
         )
     },
     {
-        accessorKey: "description",
+        accessorKey: "description", //description
         header: ({ column }) => (
             <DataTableColumnHeader column={column} title='Açıklama' />
         ),
@@ -74,7 +74,7 @@ const columns: ColumnDef<TransactionHistoryRow>[] = [
         )
     },
     {
-        accessorKey: "date",
+        accessorKey: "date", //tarih
         header: "Tarih",
         cell: ({ row }) => {
             const date = new Date(row.original.date);
@@ -88,7 +88,7 @@ const columns: ColumnDef<TransactionHistoryRow>[] = [
         }
     },
     {
-        accessorKey: "type",
+        accessorKey: "type", //tip
         header: ({ column }) => (
             <DataTableColumnHeader column={column} title='Tip' />
         ),
@@ -105,7 +105,7 @@ const columns: ColumnDef<TransactionHistoryRow>[] = [
         )
     },
     {
-        accessorKey: "amount",
+        accessorKey: "amount", //miktar
         header: ({ column }) => (
             <DataTableColumnHeader column={column} title='Miktar' />
         ),
@@ -286,8 +286,8 @@ function RowActions({ transaction }: { transaction: TransactionHistoryRow }) {
 
     return (
         <>
-        <DeleteTransactionDialog open={showDeleteDialog} setOpen=
-        {setShowDeleteDialog} transactionId={transaction.id} />
+            <DeleteTransactionDialog open={showDeleteDialog} setOpen=
+                {setShowDeleteDialog} transactionId={transaction.id} />
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                     <Button variant={"ghost"} className='h-8 w-8 p-0'>

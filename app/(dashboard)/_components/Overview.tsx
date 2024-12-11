@@ -6,6 +6,7 @@ import { UserSettings } from '@prisma/client'
 import { differenceInDays, startOfMonth } from 'date-fns';
 import React, { useState } from 'react'
 import { toast } from 'sonner';
+import { tr } from 'date-fns/locale';
 import StatsCards from './StatsCards';
 import CategoriesStats from './CategoriesStats';
 
@@ -21,6 +22,7 @@ function Overview({ userSettings }: { userSettings: UserSettings }) {
                 <h2 className='pl-4 text-3xl font-bold'>Genel Bakış</h2>
                 <div className="flex items-center gap-3">
                     <DateRangePicker
+                        locale="tr"
                         initialDateFrom={dateRange.from}
                         initialDateTo={dateRange.to}
                         showCompare={false}
